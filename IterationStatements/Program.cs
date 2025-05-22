@@ -41,6 +41,15 @@
         {
             Console.WriteLine($"Hello");
             PrintNumbers();
+            PrintEveryThirdNumber();
+
+            int first, second;
+
+            Console.WriteLine("Please enter first number: ");
+            first = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please enter second number: ");
+            second = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Are the numbers equal? {AreNumbersEqual(first, second)}");
         }
 
         static void PrintNumbers()
@@ -49,6 +58,19 @@
             {
                 Console.WriteLine($"{i}\n");
             }
+        }
+
+        static void PrintEveryThirdNumber()
+        {
+            for (int i = 3; i < 1000; i = i + 3)
+            {
+                Console.WriteLine($"{i}\n");
+            }
+        }
+
+        static bool AreNumbersEqual(int num1, int num2)
+        {
+            return num1 == num2;
         }
     }
 }
