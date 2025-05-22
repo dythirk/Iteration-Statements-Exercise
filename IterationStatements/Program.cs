@@ -1,4 +1,6 @@
-﻿namespace IterationStatements
+﻿using System.Collections.Generic;
+
+namespace IterationStatements
 {
     public class Program
     {
@@ -45,11 +47,30 @@
 
             int first, second;
 
-            Console.WriteLine("Please enter first number: ");
+            //Console.WriteLine("Please enter first number: ");
+            //first = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("Please enter second number: ");
+            //second = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine($"Are the numbers equal? {AreNumbersEqual(first, second)}\n");
+
+
+            Console.WriteLine("Please enter a number (checking Even): ");
             first = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Please enter second number: ");
-            second = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Are the numbers equal? {AreNumbersEqual(first, second)}");
+
+            Console.WriteLine($"Is the number even? {IsEven(first)}\n");
+
+            first = 0;
+            while (first == 0)
+            {
+                Console.WriteLine("Please enter a number (checking Positive): ");
+                first = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine($"Is the number positive? {IsPositive(first)}\n");
+
+            Console.WriteLine($"Is the candidate eligible to vote? {CanVote()}\n");
+
+
+
         }
 
         static void PrintNumbers()
@@ -71,6 +92,40 @@
         static bool AreNumbersEqual(int num1, int num2)
         {
             return num1 == num2;
+        }
+
+
+        static bool IsEven(int number)
+            { return (number % 2 == 0); }
+
+
+        static bool IsPositive(int number)
+        {
+            return (number > 0);
+        
+
+
+        }
+
+        static bool CanVote()
+        {
+
+            {
+                Console.WriteLine("Please enter the candidate's age (checking Eligibility): ");
+                var canParse = int.TryParse(Console.ReadLine(), out int age);
+
+                while (canParse == false)
+                {
+                    Console.WriteLine("Please enter a valid age: ");
+                    canParse = int.TryParse(Console.ReadLine(), out age);
+
+                }
+
+                return (age >= 10);
+            }
+  
+
+
         }
     }
 }
