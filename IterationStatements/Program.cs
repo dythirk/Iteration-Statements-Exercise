@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace IterationStatements
 {
@@ -54,25 +55,31 @@ namespace IterationStatements
             //Console.WriteLine($"Are the numbers equal? {AreNumbersEqual(first, second)}\n");
 
 
-            Console.WriteLine("Please enter a number (checking Even): ");
+            //Console.WriteLine("Please enter a number (checking Even): ");
+            //first = Convert.ToInt32(Console.ReadLine());
+
+            //Console.WriteLine($"Is the number even? {IsEven(first)}\n");
+
+            //first = 0;
+            //while (first == 0)
+            //{
+            //    Console.WriteLine("Please enter a number (checking Positive): ");
+            //    first = Convert.ToInt32(Console.ReadLine());
+            //}
+            //Console.WriteLine($"Is the number positive? {IsPositive(first)}\n");
+
+            //Console.WriteLine($"Is the candidate eligible to vote? {CanVote()}\n");
+
+            Console.WriteLine("Please enter a number (range -10 to 10): ");
             first = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Is the number in range? {IsInRange(first)}\n");
 
-            Console.WriteLine($"Is the number even? {IsEven(first)}\n");
-
-            first = 0;
-            while (first == 0)
-            {
-                Console.WriteLine("Please enter a number (checking Positive): ");
-                first = Convert.ToInt32(Console.ReadLine());
-            }
-            Console.WriteLine($"Is the number positive? {IsPositive(first)}\n");
-
-            Console.WriteLine($"Is the candidate eligible to vote? {CanVote()}\n");
-
+            Console.WriteLine("Please enter a number (multiplication): ");
+            first = Convert.ToInt32(Console.ReadLine());
+            DisplayMultiplicationTable(first);
 
 
         }
-
         static void PrintNumbers()
         {
             for (int i = 1000; i > -1001; i--)
@@ -80,7 +87,6 @@ namespace IterationStatements
                 Console.WriteLine($"{i}\n");
             }
         }
-
         static void PrintEveryThirdNumber()
         {
             for (int i = 3; i < 1000; i = i + 3)
@@ -88,28 +94,20 @@ namespace IterationStatements
                 Console.WriteLine($"{i}\n");
             }
         }
-
         static bool AreNumbersEqual(int num1, int num2)
         {
             return num1 == num2;
         }
-
-
-        static bool IsEven(int number)
-            { return (number % 2 == 0); }
-
-
+        static bool IsEven(int number)            
+        {
+            return (number % 2 == 0);
+        }
         static bool IsPositive(int number)
         {
             return (number > 0);
-        
-
-
         }
-
         static bool CanVote()
         {
-
             {
                 Console.WriteLine("Please enter the candidate's age (checking Eligibility): ");
                 var canParse = int.TryParse(Console.ReadLine(), out int age);
@@ -120,11 +118,18 @@ namespace IterationStatements
                     canParse = int.TryParse(Console.ReadLine(), out age);
 
                 }
-
                 return (age >= 10);
             }
-  
+        }
+        static bool IsInRange(int number)
+        {
+            return ((number >= -10) && (number <= 10));
+        }
 
+        static void DisplayMultiplicationTable(int number)
+        {
+            for (int i = 0; i < 12; i++)
+                Console.WriteLine($"{i+1} * {number} = {(i + 1) * number}");
 
         }
     }
