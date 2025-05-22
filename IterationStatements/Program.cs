@@ -41,39 +41,42 @@ namespace IterationStatements
         // In the Main method below, call each of your methods to test them.
         // Use various test cases to ensure they work as expected.        
         static void Main(string[] args)
-        {
-            Console.WriteLine($"Hello");
+        {    
             PrintNumbers();
             PrintEveryThirdNumber();
 
             int first, second;
 
-            //Console.WriteLine("Please enter first number: ");
-            //first = Convert.ToInt32(Console.ReadLine());
-            //Console.WriteLine("Please enter second number: ");
-            //second = Convert.ToInt32(Console.ReadLine());
-            //Console.WriteLine($"Are the numbers equal? {AreNumbersEqual(first, second)}\n");
+            // Comparison
+            Console.WriteLine("Please enter first number: ");
+            first = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please enter second number: ");
+            second = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Are the numbers equal? {AreNumbersEqual(first, second)}\n");
 
+            // Checking Even
+            Console.WriteLine("Please enter a number (checking Even): ");
+            first = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"Is the number even? {IsEven(first)}\n");
 
-            //Console.WriteLine("Please enter a number (checking Even): ");
-            //first = Convert.ToInt32(Console.ReadLine());
+            // Checking Positive
+            first = 0;
+            while (first == 0)
+            {
+                Console.WriteLine("Please enter a number (checking Positive): ");
+                first = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine($"Is the number positive? {IsPositive(first)}\n");
 
-            //Console.WriteLine($"Is the number even? {IsEven(first)}\n");
+            // Checking eligibilty to vote
+            Console.WriteLine($"Is the candidate eligible to vote? {CanVote()}\n");
 
-            //first = 0;
-            //while (first == 0)
-            //{
-            //    Console.WriteLine("Please enter a number (checking Positive): ");
-            //    first = Convert.ToInt32(Console.ReadLine());
-            //}
-            //Console.WriteLine($"Is the number positive? {IsPositive(first)}\n");
-
-            //Console.WriteLine($"Is the candidate eligible to vote? {CanVote()}\n");
-
+            // Checking range -10 to 10
             Console.WriteLine("Please enter a number (range -10 to 10): ");
             first = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine($"Is the number in range? {IsInRange(first)}\n");
 
+            // Multiplication
             Console.WriteLine("Please enter a number (multiplication): ");
             first = Convert.ToInt32(Console.ReadLine());
             DisplayMultiplicationTable(first);
@@ -111,7 +114,6 @@ namespace IterationStatements
             {
                 Console.WriteLine("Please enter the candidate's age (checking Eligibility): ");
                 var canParse = int.TryParse(Console.ReadLine(), out int age);
-
                 while (canParse == false)
                 {
                     Console.WriteLine("Please enter a valid age: ");
@@ -125,12 +127,10 @@ namespace IterationStatements
         {
             return ((number >= -10) && (number <= 10));
         }
-
         static void DisplayMultiplicationTable(int number)
         {
             for (int i = 0; i < 12; i++)
                 Console.WriteLine($"{i+1} * {number} = {(i + 1) * number}");
-
         }
     }
 }
