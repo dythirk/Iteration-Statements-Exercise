@@ -40,6 +40,15 @@
         static void Main(string[] args)
         {
             Console.WriteLine($"Hello");
+            PrintNumbers();
+        }
+
+        static void PrintNumbers()
+        {
+            for (int i = 1000; i > -1001; i--)
+            {
+                Console.WriteLine($"{i}\n");
+            }
         }
     }
 }
