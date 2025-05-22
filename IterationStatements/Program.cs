@@ -39,7 +39,7 @@
         // Use various test cases to ensure they work as expected.        
         static void Main(string[] args)
         {
-            
+            Console.WriteLine($"Hello");
         }
     }
 }
