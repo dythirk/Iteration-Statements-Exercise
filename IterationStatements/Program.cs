@@ -97,9 +97,9 @@ namespace IterationStatements
                 Console.WriteLine($"{i}\n");
             }
         }
-        static bool AreNumbersEqual(int num1, int num2)
+        static bool AreNumbersEqual(int first, int second)
         {
-            return num1 == num2;
+            return first == second;
         }
         static bool IsEven(int number)            
         {
@@ -120,7 +120,7 @@ namespace IterationStatements
                     canParse = int.TryParse(Console.ReadLine(), out age);
 
                 }
-                return (age >= 10);
+                return (age >= 18);
             }
         }
         static bool IsInRange(int number)
